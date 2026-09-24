@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Comic Preview — ComicCraft
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="preview-head">
+
+    <div>
+
+        <p class="eyebrow">
+            Your comic is ready
+        </p>
+
+        <h1>
+            Comic Preview
+        </h1>
+
+        <p class="lead">
+            Review all five panels,
+            then download the complete PDF.
+        </p>
+
+    </div>
+
+
+    <a
+        class="primary link-button download-pdf"
+        href="/export/{{ comic_id }}"
+        data-success-url="/export-success"
+    >
+        Download Your Comic as PDF
+    </a>
+
+</section>
+
+
+<section class="comic-grid">
+
+
+{% for panel in layout %}
+
+
+<article class="panel-card">
+
+
+    <div class="panel-heading">
+
+        <span>
+            Panel {{ panel.panel_number }}
+        </span>
+
+        <h2>
+            {{ panel.title }}
+        </h2>
+
+    </div>
+
+
+    <img
+        src="{{ panel.image_path }}"
+        alt="Illustration for panel {{ panel.panel_number }}"
+    >
+
+
+    <div class="panel-copy">
+
+
+        <p class="scene">
+
+            <em>
+                {{ panel.scene_description }}
+            </em>
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                Caption:
+            </strong>
+
+            {{ panel.caption }}
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                Narration:
+            </strong>
+
+            {{ panel.narration }}
+
+        </p>
+
+
+        {% if panel.dialogue %}
+
+
+        <div class="dialogue">
+
+            <strong>
+                Dialogue
+            </strong>
+
+
+            {% for line in panel.dialogue %}
+
+            <p>
+                {{ line }}
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                Image Prompt Reference
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+
+    </div>
+
+
+</article>
+
+
+{% endfor %}
+
+
+</section>
+
+
+<div class="bottom-actions">
+
+
+    <a
+        class="secondary"
+        href="/"
+    >
+        Create Another Comic
+    </a>
+
+
+    <a
+        class="primary link-button download-pdf"
+        href="/export/{{ comic_id }}"
+        data-success-url="/export-success"
+    >
+        Download PDF
+    </a>
+
+
+</div>
+
+
+{% endblock %}
