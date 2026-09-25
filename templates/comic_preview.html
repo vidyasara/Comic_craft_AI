@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}
+Comic Preview — ComicCraft
+{% endblock %}
+
+{% block content %}
+
+<section class="preview-head">
+
+    <div>
+
+        <p class="eyebrow">
+            ✨ Your comic is ready
+        </p>
+
+        <h1>
+            Comic Preview
+        </h1>
+
+        <p class="lead">
+            Your story has been transformed into five illustrated
+            panels. Review your comic below and download the
+            complete PDF when you're ready.
+        </p>
+
+    </div>
+
+    <a
+        class="primary link-button download-pdf"
+        href="/export/{{ comic_id }}"
+        data-success-url="/export-success"
+    >
+        ✨ Download Comic as PDF
+    </a>
+
+</section>
+
+
+<section class="comic-grid">
+
+{% for panel in layout %}
+
+<article class="panel-card">
+
+    <div class="panel-heading">
+
+        <span>
+            ✦ Panel {{ panel.panel_number }}
+        </span>
+
+        <h2>
+            {{ panel.title }}
+        </h2>
+
+    </div>
+
+
+    <!-- ================================================
+         COMIC ARTWORK + SPEECH BUBBLES
+         ================================================ -->
+
+    <div class="panel-art">
+
+        <img
+            src="{{ panel.image_path }}"
+            alt="Illustration for panel {{ panel.panel_number }}: {{ panel.title }}"
+            loading="lazy"
+        >
+
+
+        {% if panel.dialogue %}
+
+        <div class="speech-bubbles">
+
+            {% for line in panel.dialogue %}
+
+            <div
+                class="speech-bubble
+                       bubble-{{ loop.index }}
+                       position-{{ line.bubble_position | replace('-', '_') }}
+                       tail-{{ line.tail_direction | replace('-', '_') }}"
+                data-speaker="{{ line.speaker }}"
+            >
+
+                <span class="speaker-name">
+                    {{ line.speaker }}
+                </span>
+
+                <span class="dialogue-text">
+                    {{ line.text }}
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="panel-copy">
+
+        <p class="scene">
+            <em>
+                {{ panel.scene_description }}
+            </em>
+        </p>
+
+        <p>
+            <strong>Caption:</strong>
+            {{ panel.caption }}
+        </p>
+
+        <p>
+            <strong>Narration:</strong>
+            {{ panel.narration }}
+        </p>
+
+
+        {% if panel.dialogue %}
+
+        <div class="dialogue-reference">
+
+            <strong>
+                💬 Dialogue
+            </strong>
+
+            {% for line in panel.dialogue %}
+
+            <p>
+                <strong>
+                    {{ line.speaker }}:
+                </strong>
+                {{ line.text }}
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                🔍 Image Prompt Reference
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+    </div>
+
+</article>
+
+{% endfor %}
+
+</section>
+
+
+<div class="bottom-actions">
+
+    <a
+        class="secondary"
+        href="/"
+    >
+        ← Create Another Comic
+    </a>
+
+    <a
+        class="primary link-button download-pdf"
+        href="/export/{{ comic_id }}"
+        data-success-url="/export-success"
+    >
+        ✨ Download PDF
+    </a>
+
+</div>
+
+{% endblock %}

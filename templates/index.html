@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create a Comic — ComicCraft
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <p class="eyebrow">
+    ✨ GEMINI + AI IMAGE GENERATION
+</p>
+
+    <h1>
+        Turn an idea into a five-panel comic.
+    </h1>
+
+    <p class="lead">
+        Describe your story, choose the mood
+        and art style, and ComicCraft builds
+        the outline, narration, illustrations,
+        and PDF.
+    </p>
+
+</section>
+
+
+{% if error %}
+
+<div class="alert error">
+
+    <strong>
+        Generation failed:
+    </strong>
+
+    {{ error }}
+
+</div>
+
+{% endif %}
+
+
+<form
+    class="comic-form"
+    method="post"
+    action="/generate"
+    id="comic-form"
+>
+
+
+    <label>
+
+        Story Prompt
+
+        <textarea
+            name="story_prompt"
+            rows="5"
+            required
+            maxlength="2000"
+            placeholder="A brave fox exploring an enchanted forest..."
+        ></textarea>
+
+    </label>
+
+
+    <div class="grid">
+
+
+        <label>
+
+            Main Character Name
+
+            <input
+                name="character_name"
+                required
+                maxlength="80"
+                placeholder="Finn"
+            >
+
+        </label>
+
+
+        <label>
+
+            Setting
+
+            <select name="setting">
+
+                <option>
+                    forest
+                </option>
+
+                <option>
+                    school
+                </option>
+
+                <option>
+                    space
+                </option>
+
+                <option>
+                    city
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Story Tone
+
+            <select name="tone">
+
+                <option>
+                    light-hearted
+                </option>
+
+                <option>
+                    dramatic
+                </option>
+
+                <option>
+                    poetic
+                </option>
+
+                <option>
+                    funny
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Art Style
+
+            <select name="art_style">
+
+                <option>
+                    anime
+                </option>
+
+                <option>
+                    pixel art
+                </option>
+
+                <option>
+                    comic book
+                </option>
+
+                <option>
+                    realistic
+                </option>
+
+            </select>
+
+        </label>
+
+
+    </div>
+
+
+    <button
+        class="primary"
+        type="submit"
+        id="generate-button"
+    >
+        Create My Comic
+    </button>
+
+
+    <p class="form-note">
+    ✨ Gemini creates your story and AI-powered image generation
+    brings each comic panel to life.
+</p>
+
+
+</form>
+
+{% endblock %}

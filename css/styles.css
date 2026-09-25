@@ -1,0 +1,1418 @@
+:root {
+    --ink: #171421;
+    --ink-soft: #3f3a4d;
+    --muted: #716b7d;
+
+    --card: rgba(255, 255, 255, 0.92);
+    --card-solid: #ffffff;
+
+    --line: #e9e4f0;
+    --line-strong: #d9d1e6;
+
+    --accent: #6c3df5;
+    --accent-dark: #4d27c7;
+    --accent-light: #efe9ff;
+
+    --pink: #f05aa6;
+    --yellow: #ffc857;
+
+    --danger: #b42318;
+    --danger-bg: #fff0ee;
+
+    --shadow-sm:
+        0 5px 18px rgba(45, 31, 80, 0.06);
+
+    --shadow-md:
+        0 18px 50px rgba(45, 31, 80, 0.10);
+
+    --shadow-lg:
+        0 28px 75px rgba(45, 31, 80, 0.14);
+
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 26px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: var(--ink);
+
+    background:
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(108, 61, 245, 0.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(240, 90, 166, 0.10),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 200, 87, 0.08),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #fffdf9 0%,
+            #faf7ff 48%,
+            #f5f1ff 100%
+        );
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    min-height: 72px;
+
+    padding:
+        0 clamp(20px, 6vw, 90px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    border-bottom:
+        1px solid rgba(225, 218, 235, 0.85);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+}
+
+
+.brand {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 1.45rem;
+
+    font-weight: 950;
+
+    letter-spacing: -0.04em;
+
+    text-decoration: none;
+
+    color: var(--ink);
+}
+
+
+.brand::before {
+    content: "✦";
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 9px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--pink)
+        );
+
+    font-size: 0.9rem;
+
+    box-shadow:
+        0 5px 15px
+        rgba(108, 61, 245, 0.25);
+}
+
+
+.tagline {
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    padding-left: 15px;
+
+    border-left:
+        1px solid var(--line-strong);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(
+        1120px,
+        92vw
+    );
+
+    margin: 0 auto;
+
+    padding:
+        70px 0 90px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    max-width: 850px;
+
+    margin:
+        0 auto 42px;
+
+    text-align: center;
+}
+
+
+.eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 16px;
+
+    padding:
+        8px 14px;
+
+    color: var(--accent);
+
+    background:
+        var(--accent-light);
+
+    border:
+        1px solid #ded2ff;
+
+    border-radius: 999px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.11em;
+
+    font-weight: 850;
+
+    font-size: 0.72rem;
+}
+
+
+.eyebrow::before {
+    content: "✦";
+
+    font-size: 0.85rem;
+}
+
+
+h1 {
+    margin:
+        8px 0 20px;
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            5rem
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 950;
+
+    background:
+        linear-gradient(
+            110deg,
+            #171421 15%,
+            #6c3df5 58%,
+            #c13f9b 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.lead {
+    max-width: 700px;
+
+    margin:
+        0 auto;
+
+    color: var(--muted);
+
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.12rem
+        );
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.comic-form,
+.panel-card,
+.success {
+    background:
+        var(--card);
+
+    border:
+        1px solid rgba(226, 219, 237, 0.9);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-md);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.comic-form {
+    position: relative;
+
+    padding:
+        clamp(24px, 4vw, 42px);
+
+    overflow: hidden;
+}
+
+
+.comic-form::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--pink),
+            var(--yellow)
+        );
+}
+
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+label {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--ink-soft);
+
+    font-size: 0.94rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    margin-top: 9px;
+
+    padding:
+        14px 15px;
+
+    border:
+        1px solid var(--line-strong);
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    color: var(--ink);
+
+    font:
+        inherit;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa3b3;
+}
+
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color:
+        #c8bed9;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color:
+        var(--accent);
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(108, 61, 245, 0.10);
+}
+
+
+textarea {
+    resize: vertical;
+
+    min-height: 145px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        0 20px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+.primary,
+.secondary {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding:
+        0 24px;
+
+    border-radius:
+        var(--radius-sm);
+
+    font:
+        inherit;
+
+    font-weight: 850;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.primary,
+button.primary {
+    border: 0;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #8758ff
+        );
+
+    box-shadow:
+        0 10px 24px
+        rgba(108, 61, 245, 0.28);
+}
+
+
+.primary::before {
+    content: "✦";
+
+    margin-right: 9px;
+
+    font-size: 0.9rem;
+}
+
+
+.primary:hover {
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-dark),
+            #7040e8
+        );
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(108, 61, 245, 0.34);
+}
+
+
+.primary:active {
+    transform:
+        translateY(0);
+}
+
+
+.primary:disabled {
+    opacity: 0.65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+    box-shadow:
+        none;
+}
+
+
+.secondary {
+    border:
+        1px solid var(--line-strong);
+
+    background:
+        white;
+
+    color:
+        var(--ink-soft);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.secondary:hover {
+    border-color:
+        #c9bfd8;
+
+    background:
+        #faf8ff;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.link-button {
+    border: 0;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   FORM NOTE
+   ========================================================= */
+
+.form-note {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin:
+        15px 0 0;
+
+    color: var(--muted);
+
+    font-size: 0.86rem;
+
+    line-height: 1.55;
+}
+
+
+.form-note::before {
+    content: "ⓘ";
+
+    flex-shrink: 0;
+
+    color:
+        var(--accent);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.alert {
+    padding:
+        16px 18px;
+
+    border-radius:
+        var(--radius-sm);
+
+    margin-bottom:
+        22px;
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.error {
+    color:
+        var(--danger);
+
+    background:
+        var(--danger-bg);
+
+    border:
+        1px solid #f5c4bd;
+}
+
+
+/* =========================================================
+   PREVIEW PAGE
+   ========================================================= */
+
+.preview-head {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: flex-end;
+
+    gap: 24px;
+
+    margin-bottom:
+        34px;
+}
+
+
+.preview-head h1 {
+    margin-bottom: 10px;
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            3.7rem
+        );
+}
+
+
+.comic-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        26px;
+}
+
+
+/* =========================================================
+   COMIC PANEL CARD
+   ========================================================= */
+
+.panel-card {
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.panel-card:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        var(--shadow-lg);
+}
+
+
+.panel-heading {
+    padding:
+        20px 20px 15px;
+}
+
+
+.panel-heading span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color:
+        var(--accent);
+
+    font-weight:
+        850;
+
+    font-size:
+        0.75rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+}
+
+
+.panel-heading span::before {
+    content: "◆";
+
+    font-size: 0.45rem;
+}
+
+
+.panel-heading h2 {
+    margin:
+        6px 0 0;
+
+    font-size:
+        1.35rem;
+
+    letter-spacing:
+        -0.02em;
+}
+
+
+.panel-card img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio:
+        1 / 1;
+
+    object-fit: cover;
+
+    background:
+        #eee;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+.panel-copy {
+    padding:
+        20px;
+
+    line-height:
+        1.7;
+}
+
+
+.scene {
+    color:
+        var(--muted);
+}
+
+
+.dialogue {
+    position: relative;
+
+    margin:
+        18px 0;
+
+    padding:
+        13px 15px 13px 17px;
+
+    border-left:
+        4px solid var(--accent);
+
+    border-radius:
+        0 12px 12px 0;
+
+    background:
+        #f7f4ff;
+}
+
+
+.dialogue p {
+    margin:
+        4px 0;
+}
+
+
+details {
+    margin-top:
+        18px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.9rem;
+}
+
+
+summary {
+    cursor:
+        pointer;
+
+    font-weight:
+        750;
+
+    color:
+        var(--ink);
+}
+
+
+/* =========================================================
+   BOTTOM ACTIONS
+   ========================================================= */
+
+.bottom-actions {
+    display: flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        12px;
+
+    margin-top:
+        38px;
+}
+
+
+/* =========================================================
+   SUCCESS PAGE
+   ========================================================= */
+
+.success {
+    text-align:
+        center;
+
+    padding:
+        clamp(45px, 8vw, 75px)
+        30px;
+
+    max-width:
+        720px;
+
+    margin:
+        0 auto;
+}
+
+
+.success-icon {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 76px;
+
+    height: 76px;
+
+    margin-bottom:
+        20px;
+
+    border-radius:
+        50%;
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--pink)
+        );
+
+    font-size:
+        2rem;
+
+    box-shadow:
+        0 14px 30px
+        rgba(108, 61, 245, 0.25);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .site-header {
+        min-height:
+            64px;
+
+        padding:
+            0 20px;
+    }
+
+
+    .tagline {
+        display:
+            none;
+    }
+
+
+    .container {
+        width:
+            min(94vw, 680px);
+
+        padding:
+            45px 0 65px;
+    }
+
+
+    .hero {
+        margin-bottom:
+            30px;
+    }
+
+
+    h1 {
+        font-size:
+            clamp(
+                2.35rem,
+                12vw,
+                3.7rem
+            );
+    }
+
+
+    .comic-form {
+        padding:
+            23px;
+    }
+
+
+    .grid,
+    .comic-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .preview-head {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .bottom-actions {
+        flex-direction:
+            column;
+    }
+
+
+    .bottom-actions > * {
+        width:
+            100%;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .brand {
+        font-size:
+            1.25rem;
+    }
+
+
+    .brand::before {
+        width:
+            27px;
+
+        height:
+            27px;
+    }
+
+
+    .comic-form {
+        padding:
+            20px;
+    }
+
+
+    input,
+    textarea,
+    select {
+        font-size:
+            0.95rem;
+    }
+
+
+    .primary,
+    button.primary,
+    .secondary {
+        width:
+            100%;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline:
+        3px solid
+        rgba(108, 61, 245, 0.28);
+
+    outline-offset:
+        3px;
+}
+/* =========================================================
+   EXPORT SUCCESS ACTIONS
+   ========================================================= */
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.success-note {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+/* =========================================================
+   COMIC SPEECH BUBBLES
+   ========================================================= */
+
+.panel-art {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
+.panel-art img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+
+/* ---------------------------------------------------------
+   Bubble container
+   --------------------------------------------------------- */
+
+.speech-bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+
+/* ---------------------------------------------------------
+   Base speech bubble
+   --------------------------------------------------------- */
+
+.speech-bubble {
+    position: absolute;
+
+    max-width: 42%;
+    min-width: 110px;
+
+    padding: 12px 16px;
+
+    background: #ffffff;
+    color: #171421;
+
+    border: 3px solid #171421;
+    border-radius: 50%;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1.35;
+
+    text-align: center;
+
+    box-shadow:
+        3px 4px 0 rgba(23, 20, 33, 0.20);
+
+    box-sizing: border-box;
+
+    z-index: 10;
+}
+
+
+/* ---------------------------------------------------------
+   Speaker name
+   --------------------------------------------------------- */
+
+.speaker-name {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    opacity: 0.65;
+}
+
+
+/* ---------------------------------------------------------
+   Dialogue text
+   --------------------------------------------------------- */
+
+.dialogue-text {
+    display: block;
+}
+
+
+/* =========================================================
+   BUBBLE POSITIONS
+   ========================================================= */
+
+/* Top */
+
+.position-top_left {
+    top: 6%;
+    left: 5%;
+}
+
+.position-top_center {
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.position-top_right {
+    top: 6%;
+    right: 5%;
+}
+
+
+/* Middle */
+
+.position-middle_left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.position-middle_right {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+
+/* Bottom */
+
+.position-bottom_left {
+    bottom: 9%;
+    left: 8%;
+}
+
+.position-bottom_center {
+    bottom: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.position-bottom_right {
+    bottom: 9%;
+    right: 8%;
+}
+
+
+/* =========================================================
+   SPEECH-BUBBLE TAIL
+   ========================================================= */
+
+.speech-bubble::after {
+    content: "";
+
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    background: #ffffff;
+
+    border-right: 3px solid #171421;
+    border-bottom: 3px solid #171421;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   Tail → bottom-left
+   --------------------------------------------------------- */
+
+.tail-bottom_left::after {
+    bottom: -11px;
+    left: 18%;
+
+    transform: rotate(135deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → bottom-center
+   --------------------------------------------------------- */
+
+.tail-bottom_center::after {
+    bottom: -11px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(135deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → bottom-right
+   --------------------------------------------------------- */
+
+.tail-bottom_right::after {
+    bottom: -11px;
+    right: 18%;
+
+    transform: rotate(135deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → top-left
+   --------------------------------------------------------- */
+
+.tail-top_left::after {
+    top: -11px;
+    left: 18%;
+
+    transform: rotate(-45deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → top-center
+   --------------------------------------------------------- */
+
+.tail-top_center::after {
+    top: -11px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-45deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → top-right
+   --------------------------------------------------------- */
+
+.tail-top_right::after {
+    top: -11px;
+    right: 18%;
+
+    transform: rotate(-45deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → middle-left
+   --------------------------------------------------------- */
+
+.tail-middle_left::after {
+    left: -11px;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+
+/* ---------------------------------------------------------
+   Tail → middle-right
+   --------------------------------------------------------- */
+
+.tail-middle_right::after {
+    right: -11px;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(-135deg);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .speech-bubble {
+        max-width: 55%;
+        min-width: 90px;
+
+        padding: 9px 12px;
+
+        font-size: 0.72rem;
+    }
+
+    .speaker-name {
+        font-size: 0.6rem;
+    }
+
+}
